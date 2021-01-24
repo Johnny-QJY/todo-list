@@ -80,6 +80,7 @@ app.post('/todos/:id/delete', (req, res) => {
   return Todo.findById(id)
     .then(todo => todo.remove())
     .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
 })
 // 設定 port
 app.listen(port, () => {
